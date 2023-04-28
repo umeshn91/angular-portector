@@ -1,0 +1,55 @@
+<h2><u>Learning Management System</u></h2>
+<br><br>
+<br><br>
+<div class="row">
+    <div class="col-md-offset-4 col-md-4">
+        <form [formGroup]="form" #searchinfo (ngSubmit) = "searchForm(searchinfo)">
+            <div class="alert alert-info">
+               Search courses by technology or course duration between from and to.
+                </div>
+            <table>
+                <tr>
+                    <td><input id="technology" type="text" formControlName="technology" placeholder="technology" class="form-control"></td>
+                    <td><input id="dfrom" type="text" formControlName="durationFrom" placeholder="duration from" class="form-control"></td>
+                    <td><input id="dto" type="text" formControlName="durationTo" placeholder="duration to" class="form-control"></td>
+                    <td><button id="cs" class="btn btn-primary hidden-xs">Search</button></td>  
+                </tr>
+            </table>
+
+        </form>
+
+    </div>
+</div>
+
+<br><br>
+
+<hr>
+<h4> ------------------------------>> Course Details <<------------------------------</h4>
+<br>
+<div class="row">
+    <div class="col-md-offset-4 col-md-4">
+        <table class="table table-bordered table-striped table-responsive">
+            <tr>
+                <th>ID</th>
+                <th>Course Name</th>
+                <th>Description</th>
+                <th>Technology</th>
+                <th>Duration</th>
+                <th>Launch URL</th>
+            </tr>
+            <ng-container *ngFor="let item of data">
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.courseName}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.technology}}</td>
+                    <td>{{item.duration}} Months</td>
+                    <td><a href='#'>{{item.launchURL}}</a></td>
+                </tr>
+            </ng-container>
+
+        </table>
+
+    </div>
+
+</div>
